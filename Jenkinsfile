@@ -4,7 +4,6 @@ pipeline {
     stage('Testing') {
       steps {
         echo 'Initializing tests'
-        sh './run-all-tests.sh'
       }
     }
     stage('Build') {
@@ -14,7 +13,13 @@ pipeline {
     }
     stage('Approval') {
       steps {
-        sh './wait-for-approval.sh'
+        echo 'Approved'
+        sleep(unit: 'DAYS', time: 1)
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deployed'
       }
     }
   }
