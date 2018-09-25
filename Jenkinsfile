@@ -14,6 +14,7 @@ pipeline {
     stage('Approval') {
       steps {
         echo 'Approved'
+        sleep(unit: 'DAYS', time: 1)
       }
     }
     stage('Deploy') {
